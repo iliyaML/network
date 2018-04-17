@@ -28,6 +28,7 @@ router.post("/register", (req, res) => {
         d: 'mm' // Default
       });
 
+      // Create New User
       const newUser = new User({
         name: req.body.name,
         email: req.body.email,
@@ -35,6 +36,7 @@ router.post("/register", (req, res) => {
         password: req.body.password
       });
 
+      // Create Password Hash
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
           if (err) { throw err; }
@@ -44,6 +46,7 @@ router.post("/register", (req, res) => {
             .catch(err => err);
         })
       });
+
     }
   });
 });
