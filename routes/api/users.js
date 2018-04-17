@@ -6,10 +6,13 @@ const passport = require('passport');
 
 const router = express.Router();
 
+// Load Keys
 const keys = require('../../config/keys');
 
 // Load User Model
 const User = require("../../models/User");
+
+const validateRegisterInput = require('../../validation/register');
 
 // @route GET api/users/test
 // @desc Tests users route
@@ -20,13 +23,21 @@ router.get("/test", (req, res) => res.json({ message: "Hello world!" }));
 // @desc Register route
 // @access Public
 router.post("/register", (req, res) => {
+  const { errors, isValid } = validateRegisterInput(req.body);
+
+  // Check Validation
+  if (!isValid) { 
+    return res.status(400).json(errors);
+  }
+
   // Find User By Email
   User.findOne({
     email: req.body.email
   }).then(user => {
     // Check For User
     if (user) {
-      return res.status(400).json({ email: "Email already exists" });
+      errors.email = "Email already exists";
+      return res.status(400).json(errors);
     } else {
       // Grab Avatar
       const avatar = gravatar.url(req.body.email, {
