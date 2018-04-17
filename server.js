@@ -1,10 +1,15 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 const app = express();
 
-const users = require('./routes/api/users');
-const profiles = require('./routes/api/profiles');
-const posts = require('./routes/api/posts');
+const users = require("./routes/api/users");
+const profiles = require("./routes/api/profiles");
+const posts = require("./routes/api/posts");
+
+// Body Parser Middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // DB Config
 const db = require("./config/keys").mongoURI;
@@ -22,8 +27,8 @@ app.get("/", (req, res) => {
 });
 
 // Use Routes
-app.use('/api/users', users);
-app.use('/api/profiles', profiles);
-app.use('/api/posts', users);
+app.use("/api/users", users);
+app.use("/api/profiles", profiles);
+app.use("/api/posts", users);
 
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
