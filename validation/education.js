@@ -6,7 +6,7 @@ module.exports = function validateExperienceInput(data) {
 
     data.school = !isEmpty(data.school) ? data.school : '';
     data.degree = !isEmpty(data.degree) ? data.degree : '';
-    data.fieldofstudy = !isEmpty(data.fieldofstudy) ? data.fieldofstudy : '';
+    data.fieldOfStudy = !isEmpty(data.fieldOfStudy) ? data.fieldOfStudy : '';
     data.from = !isEmpty(data.from) ? data.from : '';
 
     if (Validator.isEmpty(data.school)) {
@@ -17,8 +17,8 @@ module.exports = function validateExperienceInput(data) {
         errors.degree = 'Degree field is required';
     }
 
-    if (Validator.isEmpty(data.fieldofstudy)) {
-        errors.fieldofstudy = 'Field of study field is required';
+    if (Validator.isEmpty(data.fieldOfStudy)) {
+        errors.fieldOfStudy = 'Field of study field is required';
     }
 
     if (Validator.isEmpty(data.from)) {
