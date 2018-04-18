@@ -6,12 +6,11 @@ const passport = require('passport');
 
 const router = express.Router();
 
-// Load Keys
+// Load Models
 const keys = require('../../config/keys');
-
-// Load User Model
 const User = require("../../models/User");
 
+// Load Validators
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 
