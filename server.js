@@ -33,7 +33,7 @@ require('./config/passport')(passport);
 // Use Routes
 app.use("/api/users", users);
 app.use("/api/profiles", profiles);
-app.use("/api/posts", users);
+app.use("/api/posts", posts);
 
 // App Listening
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
