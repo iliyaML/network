@@ -16,7 +16,7 @@ class Education extends Component {
                 <td>{edu.degree}</td>
                 <td>
                     <Moment format="YYYY/MM/DD">{edu.from}</Moment> -
-          {edu.to === null ? (
+          {edu.to === "" ? (
                         ' Now'
                     ) : (
                             <Moment format="YYYY/MM/DD">{edu.to}</Moment>
