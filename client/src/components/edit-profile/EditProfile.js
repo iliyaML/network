@@ -58,9 +58,11 @@ class CreateProfile extends Component {
         : '';
       profile.bio = !isEmpty(profile.bio) ? profile.bio : '';
       profile.social = !isEmpty(profile.social) ? profile.social : {};
+      
       profile.twitter = !isEmpty(profile.social.twitter)
         ? profile.social.twitter
         : '';
+
       profile.facebook = !isEmpty(profile.social.facebook)
         ? profile.social.facebook
         : '';
