@@ -89,7 +89,23 @@ export const deletePost = id => dispatch => {
 export const addLike = id => dispatch => {
     axios
         .post(`/api/posts/like/${id}`)
-        .then(res => dispatch(getPosts()))
+        // .then(res => dispatch(getPosts()))
+        .then(res => {
+            axios
+                .get('/api/posts')
+                .then(res =>
+                    dispatch({
+                        type: GET_POSTS,
+                        payload: res.data
+                    })
+                )
+                .catch(err =>
+                    dispatch({
+                        type: GET_POSTS,
+                        payload: null
+                    })
+                );
+        })
         .catch(err =>
             dispatch({
                 type: GET_ERRORS,
@@ -102,7 +118,55 @@ export const addLike = id => dispatch => {
 export const removeLike = id => dispatch => {
     axios
         .post(`/api/posts/unlike/${id}`)
-        .then(res => dispatch(getPosts()))
+        // .then(res => dispatch(getPosts()))
+        .then(res => {
+            axios
+                .get('/api/posts')
+                .then(res =>
+                    dispatch({
+                        type: GET_POSTS,
+                        payload: res.data
+                    })
+                )
+                .catch(err =>
+                    dispatch({
+                        type: GET_POSTS,
+                        payload: null
+                    })
+                );
+        })
+        .catch(err =>
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        );
+};
+
+// Add Single Like
+export const addSingleLike = id => dispatch => {
+    axios
+        .post(`/api/posts/like/${id}`)
+        .then(res => dispatch({
+            type: GET_POST,
+            payload: res.data
+        }))
+        .catch(err =>
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        );
+};
+
+// Remove Single Like
+export const removeSingleLike = id => dispatch => {
+    axios
+        .post(`/api/posts/unlike/${id}`)
+        .then(res => dispatch({
+            type: GET_POST,
+            payload: res.data
+        }))
         .catch(err =>
             dispatch({
                 type: GET_ERRORS,
