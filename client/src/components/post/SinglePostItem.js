@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
-import { Link } from 'react-router-dom';
 import { deletePost, addSingleLike, removeSingleLike } from '../../actions/postActions';
 
 class PostItem extends Component {
@@ -28,7 +27,7 @@ class PostItem extends Component {
     }
 
     render() {
-        const { post, auth, showActions } = this.props;
+        const { post, auth } = this.props;
 
         return (
             <div className="card card-body mb-3">

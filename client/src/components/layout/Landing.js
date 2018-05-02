@@ -14,8 +14,8 @@ class Landing extends Component {
         return (
             <div className="landing">
                 <div className="dark-overlay landing-inner text-light">
-                    <div className="container">
-                        <div className="row">
+                    <div className="container h-100">
+                        <div className="row align-items-center h-100">
                             <div className="col-md-12 text-center">
                                 <h1 className="display-3 mb-4">
                                     Social Network

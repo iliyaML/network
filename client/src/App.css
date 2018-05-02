@@ -1,3 +1,23 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  min-height: 100%;
+  padding-bottom: 5rem;
+}
+
 img {
   width: 100%;
 }
@@ -36,4 +56,14 @@ img {
 
 .form-control::placeholder {
   color: #bbb !important;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* padding: 0.5rem; */
+  background-color: #efefef;
+  text-align: center;
 }
