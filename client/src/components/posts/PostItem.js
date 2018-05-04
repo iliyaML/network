@@ -67,7 +67,7 @@ class PostItem extends Component {
                             </button>
                             {showActions ? (
                                 <Link to={`/post/${post._id}`} className="btn btn-info mr-1">
-                                    Comments
+                                    {post.comments.length} Comment{ post.comments.length > 1 ? 's' : ''}
                                 </Link>
                             ) : null}
                             {post.user === auth.user.id ? (
