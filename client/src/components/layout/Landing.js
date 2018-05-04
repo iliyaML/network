@@ -22,7 +22,7 @@ class Landing extends Component {
                                 </h1>
                                 <p className="lead"> Create a developer profile/portfolio, share posts and get help from other developers</p>
                                 <hr />
-                                <Link to="/register" className="btn btn-lg btn-info mr-2">Sign Up</Link>
+                                <Link to="/register" className="btn btn-lg btn-info mr-2">Register</Link>
                                 <Link to="/login" className="btn btn-lg btn-light">Login</Link>
                             </div>
                         </div>
