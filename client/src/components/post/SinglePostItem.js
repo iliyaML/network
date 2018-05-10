@@ -46,8 +46,9 @@ class PostItem extends Component {
                     <div className="col-md-10">
                         <p className="lead">{post.text}</p>
                         <span>
-                            <button
-                                onClick={this.onLikeClick.bind(this, post._id)}
+                            {this.findUserLike(post.likes) ? (
+                                <button
+                                onClick={this.onUnlikeClick.bind(this, post._id)}
                                 type="button"
                                 className="btn btn-light mr-1">
                                 <span className="badge badge-light">{post.likes.length}</span>
@@ -57,13 +58,15 @@ class PostItem extends Component {
                                     })}
                                 ></i>
                             </button>
-                            <button
-                                onClick={this.onUnlikeClick.bind(this, post._id)}
+                            ) : (
+                                <button
+                                onClick={this.onLikeClick.bind(this, post._id)}
                                 type="button"
                                 className="btn btn-light mr-1"
                             >
-                                <i className="text-secondary fas fa-thumbs-down"></i>
+                                <i className="text-secondary fas fa-thumbs-up"></i>
                             </button>
+                            )}
                             {post.user === auth.user.id ? (
                                 <button
                                     onClick={this.onDeleteClick.bind(this, post._id)}
