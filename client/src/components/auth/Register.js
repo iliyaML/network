@@ -62,7 +62,7 @@ class Register extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 m-auto">
-                            <h1 className="display-4 text-center">Sign Up</h1>
+                            <h1 className="display-4 text-center">Register</h1>
                             <p className="lead text-center">Create your Developer Network account</p>
                             <form noValidate onSubmit={this.onSubmit}>
                                 <TextFieldGroup placeholder="Name" name="name" value={this.state.name} onChange={this.onChange} error={errors.name} />
