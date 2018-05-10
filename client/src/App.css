@@ -24,7 +24,7 @@ img {
 
 .landing {
   position: relative;
-  background: url('./img/showcase.jpg') no-repeat;
+  background: url('https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_1280.jpg') no-repeat;
   background-size: cover;
   background-position: center;
   height: 100vh;
