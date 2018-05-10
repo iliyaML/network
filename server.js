@@ -1,7 +1,8 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const passport = require('passport');
+const sslRedirect = require('heroku-ssl-redirect');
 const path = require('path');
 const app = express();
 
@@ -20,6 +21,9 @@ mongoose
   .connect(db)
   .then(() => console.log("MongoDB Connected!"))
   .catch(err => console.log(err));
+
+// Heroku SSL Redirect Middleware
+app.use(sslRedirect());
 
 // Body Parser Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
